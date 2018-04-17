@@ -25,9 +25,7 @@ Then either install the gem locally:
 ```shell
 gem install ./ws-api-client-ruby-1.0.0.gem
 ```
-(for development, run `gem install --dev ./ws-api-client-ruby-1.0.0.gem` to install the development dependencies)
-
-or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
+(for development, run `gem install --dev ./ws-api-client-ruby-1.0.0.gem` to install the development dependencies).
 
 Finally add this to the Gemfile:
 
@@ -35,17 +33,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/driveate/ws-api-client-ruby, then add the following in the Gemfile:
+Add the following in the Gemfile:
 
     gem 'ws-api-client-ruby', :git => 'https://github.com/driveate/ws-api-client-ruby.git'
-
-### Include the Ruby code directly
-
-Include the Ruby code directly using `-I` as follows:
-
-```shell
-ruby -Ilib script.rb
-```
 
 ## Getting Started
 
