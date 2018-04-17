@@ -58,31 +58,20 @@ require 'ws-api-client-ruby'
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
   config.api_key['user_key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['user_key'] = 'Bearer'
 end
 
-api_instance = WsApiClient::BoltPatternsApi.new
+api_instance = WsApiClient::MakesApi.new
 
-opts = { 
-  stud: 8.14, # Float | Number of stud holes (e.g. `5`)
-  stud_min: 8.14, # Float | Lower bound for number of stud holes (e.g. `4`)
-  stud_max: 8.14, # Float | Upper bound for number of stud holes (e.g. `7`)
-  pcd: 8.14, # Float | Pitch circle diameter, mm (e.g. `115`)
-  pcd_min: 8.14, # Float | Lower bound for pitch circle diameter, mm (e.g. `105`)
-  pcd_max: 8.14, # Float | Upper bound for pitch circle diameter, mm (e.g. `135`)
-  brands: 'brands_example', # String | Show information only for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `mitsubishi,nissan,toyota`)
-  brands_exclude: 'brands_exclude_example', # String | Don't show information for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `geely,great-wall`)
-  countries: 'countries_example', # String | Show information for local manufacturers from specified countries only. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `us,gb,jp`)
-  countries_exclude: 'countries_exclude_example' # String | Don't show information for local manufacturers from specified countries. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `ru,ua`)
+opts = {
+  countries: 'us,gb,jp' # String | Show information for local manufacturers from specified countries only. Use `GET /countries/` method to get the full list of countries. (e.g. `us,gb,jp`)
 }
 
 begin
-  #Get list of bolt patterns
-  result = api_instance.bolt_patterns_list(opts)
+  #Get list manufacturers
+  result = api_instance.makes_list(opts)
   p result
 rescue WsApiClient::ApiError => e
-  puts "Exception when calling BoltPatternsApi->bolt_patterns_list: #{e}"
+  puts "Exception when calling MakesApi->makes_list: #{e}"
 end
 
 ```
