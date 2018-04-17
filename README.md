@@ -35,9 +35,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/driveate/ws-api-client-ruby, then add the following in the Gemfile:
 
-    gem 'ws-api-client-ruby', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'ws-api-client-ruby', :git => 'https://github.com/driveate/ws-api-client-ruby.git'
 
 ### Include the Ruby code directly
 
