@@ -13,7 +13,7 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 require 'date'
 
 module WsApiClient
-  class MakeModel
+  class Make
     # Manufacturer slug name (e.g. `mitsubishi`)
     attr_accessor :slug
 

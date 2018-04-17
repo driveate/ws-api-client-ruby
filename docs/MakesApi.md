@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **makes_list**
-> Array&lt;MakeModel&gt; makes_list(opts)
+> Array&lt;Make&gt; makes_list(opts)
 
 Returns a list of manufacturers
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;MakeModel&gt;**](MakeModel.md)
+[**Array&lt;Make&gt;**](Make.md)
 
 ### Authorization
 

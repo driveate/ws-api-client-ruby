@@ -1,4 +1,4 @@
-# WsApiClient::MakeModel
+# WsApiClient::Make
 
 ## Properties
 Name | Type | Description | Notes

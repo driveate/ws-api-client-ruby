@@ -48,7 +48,7 @@ module WsApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'make' => :'MakeModel',
+        :'make' => :'Make',
         :'model' => :'Model',
         :'name' => :'String',
         :'bodies' => :'Array<Body>',

@@ -99,7 +99,7 @@ Class | Method | HTTP request | Description
  - [WsApiClient::BoltPattern](docs/BoltPattern.md)
  - [WsApiClient::Country](docs/Country.md)
  - [WsApiClient::Generation](docs/Generation.md)
- - [WsApiClient::MakeModel](docs/MakeModel.md)
+ - [WsApiClient::Make](docs/Make.md)
  - [WsApiClient::MakeWithModels](docs/MakeWithModels.md)
  - [WsApiClient::Market](docs/Market.md)
  - [WsApiClient::Model](docs/Model.md)

@@ -29,7 +29,7 @@ module WsApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'make' => :'MakeModel',
+        :'make' => :'Make',
         :'models' => :'Array<ModelWithTrims>'
       }
     end

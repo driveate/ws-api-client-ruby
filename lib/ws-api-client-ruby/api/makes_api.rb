@@ -27,7 +27,7 @@ module WsApiClient
     # @option opts [String] :brands_exclude Don&#39;t show information for specified manufacturers. Use _**&#x60;GET /makes/&#x60;**_ method to get the full list. (e.g. &#x60;geely,great-wall&#x60;)
     # @option opts [String] :countries Show information for local manufacturers from specified countries only. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;us,gb,jp&#x60;)
     # @option opts [String] :countries_exclude Don&#39;t show information for local manufacturers from specified countries. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;ru,ua&#x60;)
-    # @return [Array<MakeModel>]
+    # @return [Array<Make>]
     def makes_list(opts = {})
       data, _status_code, _headers = makes_list_with_http_info(opts)
       data
@@ -41,7 +41,7 @@ module WsApiClient
     # @option opts [String] :brands_exclude Don&#39;t show information for specified manufacturers. Use _**&#x60;GET /makes/&#x60;**_ method to get the full list. (e.g. &#x60;geely,great-wall&#x60;)
     # @option opts [String] :countries Show information for local manufacturers from specified countries only. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;us,gb,jp&#x60;)
     # @option opts [String] :countries_exclude Don&#39;t show information for local manufacturers from specified countries. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;ru,ua&#x60;)
-    # @return [Array<(Array<MakeModel>, Fixnum, Hash)>] Array<MakeModel> data, response status code and response headers
+    # @return [Array<(Array<Make>, Fixnum, Hash)>] Array<Make> data, response status code and response headers
     def makes_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MakesApi.makes_list ...'
@@ -74,7 +74,7 @@ module WsApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<MakeModel>')
+        :return_type => 'Array<Make>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MakesApi#makes_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
