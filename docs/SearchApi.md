@@ -20,7 +20,7 @@ Get a list of model modifications that match the given tire size in high flotati
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -92,7 +92,7 @@ Find OE and option fitments that match the given manufacturer, model, year and t
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -160,7 +160,7 @@ Get a list of model modifications that match the given rim parameters, grouped b
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -244,7 +244,7 @@ Get a list of model modifications matching given tire, grouped by manufacturer. 
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

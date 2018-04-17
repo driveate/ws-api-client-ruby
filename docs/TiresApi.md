@@ -18,7 +18,7 @@ Get a list of tires with a number of matching model modifications
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -97,7 +97,7 @@ Get a list of model modifications by tire
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

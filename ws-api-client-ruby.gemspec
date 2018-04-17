@@ -13,10 +13,10 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "ws_api_client/version"
+require "ws-api-client-ruby/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ws_api_client"
+  s.name        = "ws-api-client-ruby"
   s.version     = WsApiClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Swagger-Codegen"]

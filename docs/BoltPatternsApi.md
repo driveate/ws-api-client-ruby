@@ -18,7 +18,7 @@ A list of possible bolt patterns with the number of matching model modifications
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -91,7 +91,7 @@ Get a list of model modifications matching to the given bolt pattern
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

@@ -17,7 +17,7 @@ List of model modifications matching given manufacturer, model and year
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

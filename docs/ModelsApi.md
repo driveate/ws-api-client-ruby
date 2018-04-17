@@ -19,7 +19,7 @@ Get a list of models that match given manufacturer and year (if present)
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -79,7 +79,7 @@ Get the detailed information about model series
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
@@ -140,7 +140,7 @@ Get more info about model/year
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

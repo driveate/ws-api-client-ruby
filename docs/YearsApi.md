@@ -17,7 +17,7 @@ Get a list of years that match the given manufacturer and model (if present)
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key

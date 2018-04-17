@@ -17,7 +17,7 @@ Find OE and option fitments that match the given manufacturer, model, year and t
 ### Example
 ```ruby
 # load the gem
-require 'ws_api_client'
+require 'ws-api-client-ruby'
 # setup authorization
 WsApiClient.configure do |config|
   # Configure API key authorization: user_key
