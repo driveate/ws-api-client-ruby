@@ -50,6 +50,12 @@ describe 'BoltPatternsApi' do
   describe 'bolt_patterns_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.bolt_patterns_list
+      expect(result).not_to be_empty
+
+      result2 = @instance.bolt_patterns_list({ :stud => 5 })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 
@@ -75,6 +81,12 @@ describe 'BoltPatternsApi' do
   describe 'bolt_patterns_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.bolt_patterns_read('5x105')
+      expect(result).not_to be_empty
+
+      result2 = @instance.bolt_patterns_read('5x105', { :brands => 'chevrolet' })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 

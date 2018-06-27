@@ -46,6 +46,16 @@ describe 'VehiclesApi' do
   describe 'vehicles_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.vehicles_list('mitsubishi', 'outlander', 2015)
+      expect(result).not_to be_empty
+
+      trim = '20-gg2w-iii-restyling'
+      # var trim = result[0]['slug']
+      # expect(trim).not_to be_empty
+
+      result2 = @instance.vehicles_list('mitsubishi', 'outlander', 2015, { :trim => trim })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 

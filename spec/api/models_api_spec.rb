@@ -43,6 +43,12 @@ describe 'ModelsApi' do
   describe 'models_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.models_list('mitsubishi')
+      expect(result).not_to be_empty
+
+      result2 = @instance.models_list('mitsubishi', { :year => 2015 })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 
@@ -57,6 +63,9 @@ describe 'ModelsApi' do
   describe 'models_read test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.models_read('mitsubishi', 'outlander')
+      expect(result.year).to be_nil
+      expect(result.years).not_to be_empty
     end
   end
 
@@ -72,6 +81,9 @@ describe 'ModelsApi' do
   describe 'models_read_year test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.models_read_year('mitsubishi', 'outlander', 2015)
+      expect(result.year).not_to be_nil
+      expect(result.years).not_to be_empty
     end
   end
 

@@ -48,6 +48,8 @@ describe 'SearchApi' do
   describe 'search_by_hf_tire_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.search_by_hf_tire_list(31, 10.5, 15)
+      expect(result).not_to be_empty
     end
   end
 
@@ -65,6 +67,16 @@ describe 'SearchApi' do
   describe 'search_by_model_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.search_by_model_list('mitsubishi', 'outlander', 2015)
+      expect(result).not_to be_empty
+
+      trim = '20-gg2w-iii-restyling'
+      # var trim = result[0]['slug']
+      # expect(trim).not_to be_empty
+
+      result2 = @instance.search_by_model_list('mitsubishi', 'outlander', 2015, { :trim => trim })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 
@@ -90,6 +102,12 @@ describe 'SearchApi' do
   describe 'search_by_rim_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.search_by_rim_list('5x100', 16, 7)
+      expect(result).not_to be_empty
+
+      result2 = @instance.search_by_rim_list('5x100', 16, 7, { :offset => 40 })
+      expect(result2).not_to be_empty
+      expect(result2.length).to be < result.length
     end
   end
 
@@ -109,6 +127,12 @@ describe 'SearchApi' do
   describe 'search_by_tire_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.search_by_tire_list(195, 50, 16)
+      expect(result).not_to be_empty
+
+      result2 = @instance.search_by_tire_list(195, 50, 16, { :brands => 'chevrolet' })
+      expect(result2).not_to be_empty
+      expect(result2.length).to eq(1)
     end
   end
 

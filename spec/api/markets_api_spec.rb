@@ -41,6 +41,14 @@ describe 'MarketsApi' do
   describe 'markets_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.markets_list 
+
+      expect(result).not_to be_empty
+    end
+    it 'chinese names should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.markets_list({ :lang => 'zh-cn' })
+      expect(result).not_to be_empty
     end
   end
 

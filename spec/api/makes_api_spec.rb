@@ -45,6 +45,8 @@ describe 'MakesApi' do
   describe 'makes_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.makes_list 
+      expect(result).not_to be_empty
     end
   end
 

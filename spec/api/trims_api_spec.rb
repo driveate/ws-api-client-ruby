@@ -43,6 +43,8 @@ describe 'TrimsApi' do
   describe 'trims_list test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      result = @instance.trims_list('mitsubishi', 'outlander', 2015)
+      expect(result).not_to be_empty
     end
   end
 
