@@ -14,10 +14,10 @@ require 'date'
 
 module WsApiClient
   class Trim
-    # Combines trim and body name. Format: __*`trim+body`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0+GG2W`)
+    # Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
     attr_accessor :slug
 
-    # Format: __*`trim (body)`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0 (GG2W)`)
+    # Format: __*`trim (body) [generation]`*__ (e.g. `2.0 (GG2W) [III Restyling]`)
     attr_accessor :name
 
     # Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
@@ -29,6 +29,15 @@ module WsApiClient
     # Generation name (e.g. `III Restyling`, can be __*`null`*__)
     attr_accessor :generation
 
+    # Trim production start year (e.g. `2015`, can be __*`null`*__)
+    attr_accessor :production_start_year
+
+    # Trim production end year (e.g. `2016`, can be __*`null`*__)
+    attr_accessor :production_end_year
+
+    # List of markets where this trim if present
+    attr_accessor :markets
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -36,7 +45,10 @@ module WsApiClient
         :'name' => :'name',
         :'trim' => :'trim',
         :'body' => :'body',
-        :'generation' => :'generation'
+        :'generation' => :'generation',
+        :'production_start_year' => :'production_start_year',
+        :'production_end_year' => :'production_end_year',
+        :'markets' => :'markets'
       }
     end
 
@@ -47,7 +59,10 @@ module WsApiClient
         :'name' => :'String',
         :'trim' => :'String',
         :'body' => :'String',
-        :'generation' => :'String'
+        :'generation' => :'String',
+        :'production_start_year' => :'Integer',
+        :'production_end_year' => :'Integer',
+        :'markets' => :'Array<Market>'
       }
     end
 
@@ -78,33 +93,32 @@ module WsApiClient
       if attributes.has_key?(:'generation')
         self.generation = attributes[:'generation']
       end
+
+      if attributes.has_key?(:'production_start_year')
+        self.production_start_year = attributes[:'production_start_year']
+      end
+
+      if attributes.has_key?(:'production_end_year')
+        self.production_end_year = attributes[:'production_end_year']
+      end
+
+      if attributes.has_key?(:'markets')
+        if (value = attributes[:'markets']).is_a?(Array)
+          self.markets = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @trim.nil?
-        invalid_properties.push('invalid value for "trim", trim cannot be nil.')
-      end
-
-      if @body.nil?
-        invalid_properties.push('invalid value for "body", body cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @trim.nil?
-      return false if @body.nil?
       true
     end
 
@@ -117,7 +131,10 @@ module WsApiClient
           name == o.name &&
           trim == o.trim &&
           body == o.body &&
-          generation == o.generation
+          generation == o.generation &&
+          production_start_year == o.production_start_year &&
+          production_end_year == o.production_end_year &&
+          markets == o.markets
     end
 
     # @see the `==` method
@@ -129,7 +146,7 @@ module WsApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [slug, name, trim, body, generation].hash
+      [slug, name, trim, body, generation, production_start_year, production_end_year, markets].hash
     end
 
     # Builds the object from hash

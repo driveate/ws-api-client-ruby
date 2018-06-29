@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.0-SNAPSHOT
 =end
 
 module WsApiClient
-  VERSION = '1.0.0'
+  VERSION = '1.0.6'
 end

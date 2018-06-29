@@ -43,9 +43,9 @@ describe 'YearsApi' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
       result = @instance.years_list('mitsubishi')
-      expect(result).not_to be_empty
-
       result2 = @instance.years_list('mitsubishi', { :model => 'outlander' })
+
+      expect(result).not_to be_empty
       expect(result2).not_to be_empty
       expect(result2.length).to be < result.length
     end

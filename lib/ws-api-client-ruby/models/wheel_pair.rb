@@ -73,32 +73,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @showing_fp_only.nil?
-        invalid_properties.push('invalid value for "showing_fp_only", showing_fp_only cannot be nil.')
-      end
-
-      if @is_stock.nil?
-        invalid_properties.push('invalid value for "is_stock", is_stock cannot be nil.')
-      end
-
-      if @front.nil?
-        invalid_properties.push('invalid value for "front", front cannot be nil.')
-      end
-
-      if @rear.nil?
-        invalid_properties.push('invalid value for "rear", rear cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @showing_fp_only.nil?
-      return false if @is_stock.nil?
-      return false if @front.nil?
-      return false if @rear.nil?
       true
     end
 

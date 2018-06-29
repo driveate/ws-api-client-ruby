@@ -195,76 +195,16 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @rim.nil?
-        invalid_properties.push('invalid value for "rim", rim cannot be nil.')
-      end
-
-      if @rim_diameter.nil?
-        invalid_properties.push('invalid value for "rim_diameter", rim_diameter cannot be nil.')
-      end
-
-      if @rim_width.nil?
-        invalid_properties.push('invalid value for "rim_width", rim_width cannot be nil.')
-      end
-
-      if @rim_offset.nil?
-        invalid_properties.push('invalid value for "rim_offset", rim_offset cannot be nil.')
-      end
-
-      if @tire.nil?
-        invalid_properties.push('invalid value for "tire", tire cannot be nil.')
-      end
-
-      if @tire_sizing_system.nil?
-        invalid_properties.push('invalid value for "tire_sizing_system", tire_sizing_system cannot be nil.')
-      end
-
-      if @tire_construction.nil?
-        invalid_properties.push('invalid value for "tire_construction", tire_construction cannot be nil.')
-      end
-
-      if @tire_width.nil?
-        invalid_properties.push('invalid value for "tire_width", tire_width cannot be nil.')
-      end
-
-      if @tire_aspect_ratio.nil?
-        invalid_properties.push('invalid value for "tire_aspect_ratio", tire_aspect_ratio cannot be nil.')
-      end
-
-      if @tire_diameter.nil?
-        invalid_properties.push('invalid value for "tire_diameter", tire_diameter cannot be nil.')
-      end
-
-      if @tire_section_width.nil?
-        invalid_properties.push('invalid value for "tire_section_width", tire_section_width cannot be nil.')
-      end
-
-      if @tire_is_82series.nil?
-        invalid_properties.push('invalid value for "tire_is_82series", tire_is_82series cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @rim.nil?
-      return false if @rim_diameter.nil?
-      return false if @rim_width.nil?
-      return false if @rim_offset.nil?
-      return false if @tire.nil?
-      return false if @tire_sizing_system.nil?
       tire_sizing_system_validator = EnumAttributeValidator.new('String', ['metric', 'flotation', 'lt-metric', 'lt-numeric'])
       return false unless tire_sizing_system_validator.valid?(@tire_sizing_system)
-      return false if @tire_construction.nil?
       tire_construction_validator = EnumAttributeValidator.new('String', ['R', 'B', 'D'])
       return false unless tire_construction_validator.valid?(@tire_construction)
-      return false if @tire_width.nil?
-      return false if @tire_aspect_ratio.nil?
-      return false if @tire_diameter.nil?
-      return false if @tire_section_width.nil?
-      return false if @tire_is_82series.nil?
       true
     end
 

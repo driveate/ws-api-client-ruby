@@ -104,32 +104,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @make.nil?
-        invalid_properties.push('invalid value for "make", make cannot be nil.')
-      end
-
-      if @model.nil?
-        invalid_properties.push('invalid value for "model", model cannot be nil.')
-      end
-
-      if @year.nil?
-        invalid_properties.push('invalid value for "year", year cannot be nil.')
-      end
-
-      if @generations.nil?
-        invalid_properties.push('invalid value for "generations", generations cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @make.nil?
-      return false if @model.nil?
-      return false if @year.nil?
-      return false if @generations.nil?
       true
     end
 

@@ -84,32 +84,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @width.nil?
-        invalid_properties.push('invalid value for "width", width cannot be nil.')
-      end
-
-      if @aspect_ratio.nil?
-        invalid_properties.push('invalid value for "aspect_ratio", aspect_ratio cannot be nil.')
-      end
-
-      if @rim_diameter.nil?
-        invalid_properties.push('invalid value for "rim_diameter", rim_diameter cannot be nil.')
-      end
-
-      if @count.nil?
-        invalid_properties.push('invalid value for "count", count cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @width.nil?
-      return false if @aspect_ratio.nil?
-      return false if @rim_diameter.nil?
-      return false if @count.nil?
       true
     end
 

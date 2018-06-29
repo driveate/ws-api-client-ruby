@@ -14,10 +14,6 @@ require 'date'
 
 module WsApiClient
   class Generation
-    attr_accessor :make
-
-    attr_accessor :model
-
     # Generation name (e.g. `III Restyling`)
     attr_accessor :name
 
@@ -35,8 +31,6 @@ module WsApiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'make' => :'make',
-        :'model' => :'model',
         :'name' => :'name',
         :'bodies' => :'bodies',
         :'start_year' => :'start_year',
@@ -48,8 +42,6 @@ module WsApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'make' => :'Make',
-        :'model' => :'Model',
         :'name' => :'String',
         :'bodies' => :'Array<Body>',
         :'start_year' => :'Integer',
@@ -65,14 +57,6 @@ module WsApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'make')
-        self.make = attributes[:'make']
-      end
-
-      if attributes.has_key?(:'model')
-        self.model = attributes[:'model']
-      end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
@@ -103,32 +87,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @make.nil?
-        invalid_properties.push('invalid value for "make", make cannot be nil.')
-      end
-
-      if @model.nil?
-        invalid_properties.push('invalid value for "model", model cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @bodies.nil?
-        invalid_properties.push('invalid value for "bodies", bodies cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @make.nil?
-      return false if @model.nil?
-      return false if @name.nil?
-      return false if @bodies.nil?
       true
     end
 
@@ -137,8 +101,6 @@ module WsApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          make == o.make &&
-          model == o.model &&
           name == o.name &&
           bodies == o.bodies &&
           start_year == o.start_year &&
@@ -155,7 +117,7 @@ module WsApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [make, model, name, bodies, start_year, end_year, years].hash
+      [name, bodies, start_year, end_year, years].hash
     end
 
     # Builds the object from hash

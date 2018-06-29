@@ -66,20 +66,8 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @slug.nil?
-        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
-      end
-
-      if @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
+      if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
         invalid_properties.push('invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @name_en.nil?
-        invalid_properties.push('invalid value for "name_en", name_en cannot be nil.')
       end
 
       invalid_properties
@@ -88,21 +76,14 @@ module WsApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @slug.nil?
-      return false if @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
-      return false if @name.nil?
-      return false if @name_en.nil?
+      return false if !@slug.nil? && @slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
       true
     end
 
     # Custom attribute writer method with validation
     # @param [Object] slug Value to be assigned
     def slug=(slug)
-      if slug.nil?
-        fail ArgumentError, 'slug cannot be nil'
-      end
-
-      if slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
+      if !slug.nil? && slug !~ Regexp.new(/^[-a-zA-Z0-9_]+$/)
         fail ArgumentError, 'invalid value for "slug", must conform to the pattern /^[-a-zA-Z0-9_]+$/.'
       end
 

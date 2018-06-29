@@ -54,9 +54,9 @@ describe 'TiresApi' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
       result = @instance.tires_list
-      expect(result).not_to be_empty
-
       result2 = @instance.tires_list({ :width => 195 })
+
+      expect(result).not_to be_empty
       expect(result2).not_to be_empty
       expect(result2.length).to be < result.length
     end

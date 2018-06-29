@@ -44,9 +44,9 @@ describe 'ModelsApi' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
       result = @instance.models_list('mitsubishi')
-      expect(result).not_to be_empty
-
       result2 = @instance.models_list('mitsubishi', { :year => 2015 })
+
+      expect(result).not_to be_empty
       expect(result2).not_to be_empty
       expect(result2.length).to be < result.length
     end

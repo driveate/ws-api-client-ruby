@@ -25,8 +25,8 @@ module WsApiClient
     # @param model Model slug name, use _**&#x60;GET /models/&#x60;**_ to get possible values (e.g. &#x60;outlander&#x60;)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :year You can use _**&#x60;GET /years/&#x60;**_ to get possible years (e.g. &#x60;2015&#x60;)
-    # @option opts [String] :lang Use this parameter anywhere in the API to get *&#x60;name&#x60;* field translation of the following objects: **&#x60;Make&#x60;**, **&#x60;Model&#x60;**, **&#x60;Market&#x60;**. Across the *&#x60;name&#x60;* this objects will have *&#x60;name_en&#x60;* field with original english name. By default &#x60;en&#x60; language is used.  Available languages: &#x60;en,de,ru,es,pt,fr,ja,zh-cn&#x60;. Currently translation works for chinese &#x60;zh-cn&#x60; language only
-    # @return [Array<Generation>]
+    # @option opts [String] :lang Use this parameter anywhere in the API to get *&#x60;name&#x60;* field translation of the following objects: **&#x60;Make&#x60;**, **&#x60;Model&#x60;**, **&#x60;Market&#x60;**. Across the *&#x60;name&#x60;* this objects will have *&#x60;name_en&#x60;* field with original english name. By default &#x60;en&#x60; language is used.  Available languages: &#x60;en,de,ru,es,pt,fr,ja,zh-cn,zh-tw&#x60;. Currently translation works for chinese &#x60;zh-cn&#x60; language only
+    # @return [Array<GenerationWithMakeAndModel>]
     def generations_list(make, model, opts = {})
       data, _status_code, _headers = generations_list_with_http_info(make, model, opts)
       data
@@ -38,8 +38,8 @@ module WsApiClient
     # @param model Model slug name, use _**&#x60;GET /models/&#x60;**_ to get possible values (e.g. &#x60;outlander&#x60;)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :year You can use _**&#x60;GET /years/&#x60;**_ to get possible years (e.g. &#x60;2015&#x60;)
-    # @option opts [String] :lang Use this parameter anywhere in the API to get *&#x60;name&#x60;* field translation of the following objects: **&#x60;Make&#x60;**, **&#x60;Model&#x60;**, **&#x60;Market&#x60;**. Across the *&#x60;name&#x60;* this objects will have *&#x60;name_en&#x60;* field with original english name. By default &#x60;en&#x60; language is used.  Available languages: &#x60;en,de,ru,es,pt,fr,ja,zh-cn&#x60;. Currently translation works for chinese &#x60;zh-cn&#x60; language only
-    # @return [Array<(Array<Generation>, Fixnum, Hash)>] Array<Generation> data, response status code and response headers
+    # @option opts [String] :lang Use this parameter anywhere in the API to get *&#x60;name&#x60;* field translation of the following objects: **&#x60;Make&#x60;**, **&#x60;Model&#x60;**, **&#x60;Market&#x60;**. Across the *&#x60;name&#x60;* this objects will have *&#x60;name_en&#x60;* field with original english name. By default &#x60;en&#x60; language is used.  Available languages: &#x60;en,de,ru,es,pt,fr,ja,zh-cn,zh-tw&#x60;. Currently translation works for chinese &#x60;zh-cn&#x60; language only
+    # @return [Array<(Array<GenerationWithMakeAndModel>, Fixnum, Hash)>] Array<GenerationWithMakeAndModel> data, response status code and response headers
     def generations_list_with_http_info(make, model, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerationsApi.generations_list ...'
@@ -79,7 +79,7 @@ module WsApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<Generation>')
+        :return_type => 'Array<GenerationWithMakeAndModel>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerationsApi#generations_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

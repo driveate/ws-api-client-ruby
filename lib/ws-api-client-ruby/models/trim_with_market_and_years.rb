@@ -67,27 +67,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @trim.nil?
-        invalid_properties.push('invalid value for "trim", trim cannot be nil.')
-      end
-
-      if @market.nil?
-        invalid_properties.push('invalid value for "market", market cannot be nil.')
-      end
-
-      if @years.nil?
-        invalid_properties.push('invalid value for "years", years cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @trim.nil?
-      return false if @market.nil?
-      return false if @years.nil?
       true
     end
 

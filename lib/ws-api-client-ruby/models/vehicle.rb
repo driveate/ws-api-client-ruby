@@ -22,6 +22,9 @@ module WsApiClient
     # Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
     attr_accessor :trim
 
+    # Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
+    attr_accessor :slug
+
     attr_accessor :generation
 
     # Number of stud holes (e.g. `5`, can be __*`null`*__)
@@ -42,6 +45,9 @@ module WsApiClient
     attr_accessor :bolt_pattern
 
     attr_accessor :power
+
+    # Engine type (e.g. `V8`, can be __*`null`*__)
+    attr_accessor :engine_type
 
     # Fuel (e.g. `Petrol`, can be __*`null`*__)
     attr_accessor :fuel
@@ -76,6 +82,7 @@ module WsApiClient
         :'market' => :'market',
         :'body' => :'body',
         :'trim' => :'trim',
+        :'slug' => :'slug',
         :'generation' => :'generation',
         :'stud_holes' => :'stud_holes',
         :'pcd' => :'pcd',
@@ -84,6 +91,7 @@ module WsApiClient
         :'lock_text' => :'lock_text',
         :'bolt_pattern' => :'bolt_pattern',
         :'power' => :'power',
+        :'engine_type' => :'engine_type',
         :'fuel' => :'fuel',
         :'wheels' => :'wheels'
       }
@@ -95,6 +103,7 @@ module WsApiClient
         :'market' => :'Market',
         :'body' => :'String',
         :'trim' => :'String',
+        :'slug' => :'String',
         :'generation' => :'Generation',
         :'stud_holes' => :'Integer',
         :'pcd' => :'Float',
@@ -103,6 +112,7 @@ module WsApiClient
         :'lock_text' => :'String',
         :'bolt_pattern' => :'String',
         :'power' => :'Power',
+        :'engine_type' => :'String',
         :'fuel' => :'String',
         :'wheels' => :'Array<WheelPair>'
       }
@@ -126,6 +136,10 @@ module WsApiClient
 
       if attributes.has_key?(:'trim')
         self.trim = attributes[:'trim']
+      end
+
+      if attributes.has_key?(:'slug')
+        self.slug = attributes[:'slug']
       end
 
       if attributes.has_key?(:'generation')
@@ -160,6 +174,10 @@ module WsApiClient
         self.power = attributes[:'power']
       end
 
+      if attributes.has_key?(:'engine_type')
+        self.engine_type = attributes[:'engine_type']
+      end
+
       if attributes.has_key?(:'fuel')
         self.fuel = attributes[:'fuel']
       end
@@ -175,61 +193,14 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @market.nil?
-        invalid_properties.push('invalid value for "market", market cannot be nil.')
-      end
-
-      if @body.nil?
-        invalid_properties.push('invalid value for "body", body cannot be nil.')
-      end
-
-      if @trim.nil?
-        invalid_properties.push('invalid value for "trim", trim cannot be nil.')
-      end
-
-      if @generation.nil?
-        invalid_properties.push('invalid value for "generation", generation cannot be nil.')
-      end
-
-      if @stud_holes.nil?
-        invalid_properties.push('invalid value for "stud_holes", stud_holes cannot be nil.')
-      end
-
-      if @pcd.nil?
-        invalid_properties.push('invalid value for "pcd", pcd cannot be nil.')
-      end
-
-      if @centre_bore.nil?
-        invalid_properties.push('invalid value for "centre_bore", centre_bore cannot be nil.')
-      end
-
-      if @lock_text.nil?
-        invalid_properties.push('invalid value for "lock_text", lock_text cannot be nil.')
-      end
-
-      if @bolt_pattern.nil?
-        invalid_properties.push('invalid value for "bolt_pattern", bolt_pattern cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @market.nil?
-      return false if @body.nil?
-      return false if @trim.nil?
-      return false if @generation.nil?
-      return false if @stud_holes.nil?
-      return false if @pcd.nil?
-      return false if @centre_bore.nil?
       lock_type_validator = EnumAttributeValidator.new('String', ['nut', 'bolt'])
       return false unless lock_type_validator.valid?(@lock_type)
-      return false if @lock_text.nil?
-      lock_text_validator = EnumAttributeValidator.new('String', ['M10 x 1.25', 'M12 x 1.25', 'M12 x 1.5', 'M12 x 1.75', 'M14 x 1.25', 'M14 x 1.5', 'M14 x 2.0', 'M16 x 1.5', '3/8\" - 24 UNF', '7/16\" - 20 UNF', '1/2\" - 20 UNF', '9/16\" - 18 UNF'])
-      return false unless lock_text_validator.valid?(@lock_text)
-      return false if @bolt_pattern.nil?
       true
     end
 
@@ -243,16 +214,6 @@ module WsApiClient
       @lock_type = lock_type
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] lock_text Object to be assigned
-    def lock_text=(lock_text)
-      validator = EnumAttributeValidator.new('String', ['M10 x 1.25', 'M12 x 1.25', 'M12 x 1.5', 'M12 x 1.75', 'M14 x 1.25', 'M14 x 1.5', 'M14 x 2.0', 'M16 x 1.5', '3/8\" - 24 UNF', '7/16\" - 20 UNF', '1/2\" - 20 UNF', '9/16\" - 18 UNF'])
-      unless validator.valid?(lock_text)
-        fail ArgumentError, 'invalid value for "lock_text", must be one of #{validator.allowable_values}.'
-      end
-      @lock_text = lock_text
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -261,6 +222,7 @@ module WsApiClient
           market == o.market &&
           body == o.body &&
           trim == o.trim &&
+          slug == o.slug &&
           generation == o.generation &&
           stud_holes == o.stud_holes &&
           pcd == o.pcd &&
@@ -269,6 +231,7 @@ module WsApiClient
           lock_text == o.lock_text &&
           bolt_pattern == o.bolt_pattern &&
           power == o.power &&
+          engine_type == o.engine_type &&
           fuel == o.fuel &&
           wheels == o.wheels
     end
@@ -282,7 +245,7 @@ module WsApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [market, body, trim, generation, stud_holes, pcd, centre_bore, lock_type, lock_text, bolt_pattern, power, fuel, wheels].hash
+      [market, body, trim, slug, generation, stud_holes, pcd, centre_bore, lock_type, lock_text, bolt_pattern, power, engine_type, fuel, wheels].hash
     end
 
     # Builds the object from hash

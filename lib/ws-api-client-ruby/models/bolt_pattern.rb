@@ -75,27 +75,12 @@ module WsApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @stud.nil?
-        invalid_properties.push('invalid value for "stud", stud cannot be nil.')
-      end
-
-      if @pcd.nil?
-        invalid_properties.push('invalid value for "pcd", pcd cannot be nil.')
-      end
-
-      if @count.nil?
-        invalid_properties.push('invalid value for "count", count cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @stud.nil?
-      return false if @pcd.nil?
-      return false if @count.nil?
       true
     end
 
